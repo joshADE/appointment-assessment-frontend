@@ -1,9 +1,10 @@
 import React from 'react';
 import { Typography, Box, useTheme, Grid } from '@mui/material';
 import { PhoneOutlined, EmailOutlined } from '@mui/icons-material';
-import { useGetGuestsQuery } from '../services/api/guest/guest';
-import { Guest } from '../services/types/guest/guest';
-import ListContainer from './ListContainer';
+import { useGetGuestsQuery } from '../../services/api/guest/guest';
+import { Guest } from '../../services/types/guest/guest';
+import ListContainer from '../common/ListContainer';
+import AddGuest from './AddGuest';
 
 const renderGuestDetails = ({ firstName, lastName, phone, email }: Guest) => {
     const theme = useTheme();
@@ -39,7 +40,9 @@ const GuestList = () => {
             items={data?.data}
             renderItemContent={renderGuestDetails}
             isLoading={isLoading}
-            error={error}
+            error={data?.status === false ? {} : error}
+            addItemDialogContent={AddGuest}
+            addItemDialogTitle="Add Guest"
         />
     </Box>
   )

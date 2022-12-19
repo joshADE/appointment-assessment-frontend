@@ -1,6 +1,9 @@
-import { Grid, useTheme, Box } from '@mui/material';
 import React from 'react';
-import GuestList from './GuestList';
+import { Grid, useTheme, Box } from '@mui/material';
+import GuestList from '../guest/GuestList';
+import StaffList from '../staff/StaffList';
+import ServiceList from '../service/ServiceList';
+import AppointmentList from '../appointment/AppointmentList';
 
 const MainPage = () => {
   const theme = useTheme();
@@ -26,21 +29,21 @@ const MainPage = () => {
           xs={2}
           marginX="5px"
         >
-          <GuestList />
+          <StaffList />
         </Grid>
         <Grid
           item={true}
-          xs={3}
+          xs={2}
           marginX="5px"
         >
-          <GuestList />
+          <ServiceList />
         </Grid>
         <Grid
           item={true}
           xs={true}
           marginX="5px"
         >
-          <GuestList />
+          <AppointmentList />
         </Grid>
       </Grid>
     </Box>

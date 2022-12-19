@@ -6,12 +6,14 @@ type validsizes = keyof Theme["roundening"];
 
 export interface Props extends PaperProps {
     borderRadius?: validsizes;
+    minHeight?: string;
 }
 
-const StyledPaper = styled(({ borderRadius, ...rest} : Props) => <Paper {...rest} />)(
-    ({ theme }: { theme: Theme }) => (({ borderRadius }: Props) => `
+const StyledPaper = styled(({ borderRadius, minHeight, ...rest} : Props) => <Paper {...rest} />)(
+    ({ theme }: { theme: Theme }) => (({ borderRadius, minHeight }: Props) => `
     &.MuiPaper-root {
         border-radius: ${(borderRadius ? theme.roundening[borderRadius] : "0px")};
+        min-height: ${(minHeight ? minHeight : "auto")};
     }
 `));
 

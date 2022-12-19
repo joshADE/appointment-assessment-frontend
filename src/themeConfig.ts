@@ -1,5 +1,6 @@
 import { createTheme } from '@mui/material';
 import { green, red, orange } from '@mui/material/colors';
+import type {} from '@mui/x-date-pickers/themeAugmentation';
 
 export const theme = createTheme({
     palette: {
